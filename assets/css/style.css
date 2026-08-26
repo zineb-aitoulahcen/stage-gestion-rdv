@@ -1,0 +1,280 @@
+/* =====================================================
+   STYLES COMMUNS DE L'APPLICATION
+   Fichier : style.css
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   Variables
+   ----------------------------------------------------- */
+
+:root {
+    --background: #f5f6fa;
+    --white: #ffffff;
+
+    --nav-dark: #171a2b;
+    --nav-border: #2a2e45;
+
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+
+    --text: #1f2330;
+    --muted: #6b7280;
+
+    --border: #e5e7eb;
+
+    --red: #ef4444;
+    --red-light: #fff5f5;
+
+    --hover: #fafafd;
+}
+
+
+/* -----------------------------------------------------
+   Réinitialisation
+   ----------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 13px;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    background: var(--background);
+    color: var(--text);
+
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+
+/* -----------------------------------------------------
+   Barre de navigation
+   ----------------------------------------------------- */
+
+.topnav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+
+    min-height: 53px;
+    padding: 15px 32px;
+
+    background: var(--nav-dark);
+    border-bottom: 1px solid var(--nav-border);
+}
+
+.brand {
+    flex-shrink: 0;
+
+    color: var(--white);
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.menu a {
+    padding: 5px 0;
+
+    color: #b8bcd4;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+    color: var(--white);
+}
+
+.menu a.active {
+    color: var(--white);
+    font-weight: 600;
+
+    border-bottom-color: var(--primary);
+}
+
+
+/* -----------------------------------------------------
+   Contenu principal
+   ----------------------------------------------------- */
+
+.main {
+    width: 100%;
+    max-width: 1600px;
+
+    margin: 0 auto;
+    padding: 28px 32px 41px;
+}
+
+
+/* -----------------------------------------------------
+   En-tête des pages
+   ----------------------------------------------------- */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 19px;
+
+    margin-bottom: 22px;
+}
+
+.page-header h1 {
+    margin: 0 0 9px;
+
+    color: var(--text);
+
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.page-header p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* -----------------------------------------------------
+   Bouton principal
+   ----------------------------------------------------- */
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 172px;
+    min-height: 38px;
+    padding: 11px 18px;
+
+    color: var(--white);
+    background: var(--primary);
+
+    border: none;
+    border-radius: 8px;
+
+    box-shadow: 0 3px 10px rgba(79, 70, 229, 0.25);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+
+/* -----------------------------------------------------
+   Messages d'erreur
+   ----------------------------------------------------- */
+
+.form-erreurs {
+    margin-bottom: 15px;
+    padding: 11px 15px;
+
+    color: #b91c1c;
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+}
+
+.form-erreurs p {
+    margin: 4px 0;
+    font-size: 11px;
+}
+
+
+/* -----------------------------------------------------
+   Responsive général
+   ----------------------------------------------------- */
+
+@media (max-width: 900px) {
+    .topnav {
+        gap: 19px;
+        padding: 14px 19px;
+    }
+
+    .menu {
+        gap: 15px;
+    }
+
+    .main {
+        padding: 22px 19px 34px;
+    }
+
+    .page-header h1 {
+        font-size: 29px;
+    }
+}
+
+@media (max-width: 680px) {
+    .topnav {
+        display: block;
+        padding: 13px 15px;
+    }
+
+    .brand {
+        display: block;
+        margin-bottom: 11px;
+        font-size: 14px;
+    }
+
+    .menu {
+        gap: 15px;
+        overflow-x: auto;
+    }
+
+    .menu a {
+        flex-shrink: 0;
+        font-size: 11px;
+    }
+
+    .main {
+        padding: 19px 12px 26px;
+    }
+
+    .page-header {
+        display: block;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .page-header p {
+        margin-bottom: 16px;
+        font-size: 12px;
+    }
+
+    .page-header form {
+        width: 100%;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+}

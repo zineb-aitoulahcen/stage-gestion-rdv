@@ -1,0 +1,242 @@
+/* =====================================================
+   STYLES COMMUNS DES TABLEAUX
+   Fichier : tables.css
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   Carte contenant un tableau
+   ----------------------------------------------------- */
+
+.table-card {
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    box-shadow: 0 2px 5px rgba(15, 18, 40, 0.07);
+}
+
+.table-card-header {
+    padding: 19px 22px 15px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.table-card-header h2 {
+    margin: 0 0 5px;
+
+    color: var(--text);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.table-card-header p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* -----------------------------------------------------
+   Tableau commun
+   ----------------------------------------------------- */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    min-width: 640px;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    table-layout: fixed;
+}
+
+.data-table th,
+.data-table td {
+    box-sizing: border-box;
+}
+
+
+/* -----------------------------------------------------
+   En-tête du tableau
+   ----------------------------------------------------- */
+
+.data-table thead th {
+    height: 49px;
+    padding: 15px 19px;
+
+    color: var(--muted);
+    background: #fafbff;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+
+    text-align: left;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.data-table thead th.col-id {
+    text-align: center;
+}
+
+
+/* -----------------------------------------------------
+   Corps du tableau
+   ----------------------------------------------------- */
+
+.data-table tbody td {
+    height: 56px;
+    padding: 15px 19px;
+
+    color: var(--text);
+    background: var(--white);
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 13px;
+
+    vertical-align: middle;
+}
+
+.data-table tbody td.col-id {
+    text-align: center;
+    font-weight: 500;
+}
+
+.data-table tbody tr:hover td {
+    background: var(--hover);
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* -----------------------------------------------------
+   Colonnes texte
+   ----------------------------------------------------- */
+
+.data-table tbody td.col-nom,
+.data-table tbody td.col-prenom {
+    font-weight: 600;
+}
+
+.data-table tbody td.col-telephone,
+.data-table tbody td.col-medecins,
+.data-table tbody td.col-specialite {
+    color: var(--muted);
+}
+
+
+/* -----------------------------------------------------
+   Colonne des actions
+   ----------------------------------------------------- */
+
+.data-table th.col-actions,
+.data-table td.col-actions {
+    padding-left: 19px;
+
+    text-align: left;
+    white-space: nowrap;
+}
+
+
+/* -----------------------------------------------------
+   Formulaires des actions
+   ----------------------------------------------------- */
+
+.action-form {
+    display: inline-block;
+
+    margin: 0;
+    padding: 0;
+}
+
+.action-form + .action-form {
+    margin-left: 6px;
+}
+
+
+/* -----------------------------------------------------
+   Boutons Modifier et Supprimer
+   ----------------------------------------------------- */
+
+.btn-action {
+    min-width: 71px;
+    height: 32px;
+    padding: 0 11px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.btn-edit {
+    color: var(--primary);
+    border-color: #e0e2fb;
+}
+
+.btn-edit:hover {
+    color: var(--primary-dark);
+    background: #eef0fe;
+    border-color: #c7d2fe;
+}
+
+.btn-delete {
+    color: var(--red);
+    border-color: #fbe4e2;
+}
+
+.btn-delete:hover {
+    color: #dc2626;
+    background: var(--red-light);
+    border-color: #fecaca;
+}
+
+
+/* -----------------------------------------------------
+   Tableau vide et pied du tableau
+   ----------------------------------------------------- */
+
+.empty-cell {
+    padding: 30px !important;
+
+    color: var(--muted) !important;
+
+    font-size: 13px !important;
+    font-style: italic;
+
+    text-align: center !important;
+}
+
+.table-footer {
+    min-height: 51px;
+    padding: 16px 22px;
+
+    color: var(--muted);
+    background: var(--white);
+
+    font-size: 13px;
+}

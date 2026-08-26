@@ -1,0 +1,250 @@
+/* =====================================================
+   STYLES COMMUNS DES FORMULAIRES
+   Fichier : forms.css
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   Conteneur de la page formulaire
+   ----------------------------------------------------- */
+
+.form-page {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+.form-page-header {
+    margin-bottom: 21px;
+}
+
+.form-page-header h1 {
+    margin: 12px 0 8px;
+
+    color: var(--text);
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.form-page-header p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.back-link {
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+
+/* -----------------------------------------------------
+   Carte du formulaire
+   ----------------------------------------------------- */
+
+.form-card {
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    box-shadow: 0 2px 5px rgba(15, 18, 40, 0.07);
+}
+
+.form-card-header {
+    padding: 19px 22px 15px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.form-card-header h2 {
+    margin: 0 0 5px;
+
+    color: var(--text);
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.form-card-header p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* -----------------------------------------------------
+   Formulaire
+   ----------------------------------------------------- */
+
+.form-content {
+    padding: 22px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    margin-bottom: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 39px;
+    padding: 0 12px;
+
+    color: var(--text);
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.form-note {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 11px;
+    font-style: italic;
+}
+
+
+/* -----------------------------------------------------
+   Boutons du formulaire
+   ----------------------------------------------------- */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+
+    margin-top: 24px;
+    padding-top: 19px;
+
+    border-top: 1px solid var(--border);
+}
+
+.btn-cancel,
+.btn-save {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 35px;
+    padding: 0 15px;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.btn-cancel {
+    min-width: 86px;
+
+    color: var(--text);
+    background: var(--white);
+
+    border: 1px solid var(--border);
+}
+
+.btn-cancel:hover {
+    background: #f9fafb;
+}
+
+.btn-save {
+    min-width: 150px;
+
+    color: var(--white);
+    background: var(--primary);
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.btn-save:hover {
+    background: var(--primary-dark);
+}
+
+
+/* -----------------------------------------------------
+   Responsive des formulaires
+   ----------------------------------------------------- */
+
+@media (max-width: 700px) {
+    .form-page-header h1 {
+        font-size: 24px;
+    }
+
+    .form-card-header,
+    .form-content {
+        padding: 16px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .btn-cancel,
+    .btn-save {
+        width: 100%;
+    }
+}
