@@ -43,6 +43,7 @@ Le diagramme de classes proposé avant le développement est disponible ici :
 
 ## Structure du projet
 
+```
 stage_gestion_rdv/
 ├── assets/ # CSS
 ├── config/ # Connexion à la base de données
@@ -53,7 +54,7 @@ stage_gestion_rdv/
 ├── views/ # Vues (affichage)
 ├── .env.example # Exemple de configuration
 └── index.php # Page d'accueil
-
+```
 
 ## Installation
 
