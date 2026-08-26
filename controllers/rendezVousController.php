@@ -1,6 +1,5 @@
 <?php
     require_once __DIR__ . '/../models/rendezvous.php';
-    require_once __DIR__ . '/../models/StatusRDV.php';
     require_once __DIR__ . '/../models/medecin.php';
     require_once __DIR__ . '/../models/patient.php';
 
