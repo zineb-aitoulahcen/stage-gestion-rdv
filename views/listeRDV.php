@@ -47,6 +47,18 @@
                         <input type="hidden" name="action" value="liste">
                         <div class="filters-row">
                             <div class="filter-group">
+                                <label for="idPatient">Patient</label>
+                                <select name="idPatient" id="idPatient">
+                                    <option value="">Tous les patients</option>
+                                    <?php foreach ($patients as $patient) : ?>
+                                        <option value="<?= htmlspecialchars($patient['idPatient'], ENT_QUOTES, 'UTF-8') ?>"
+                                            <?= (isset($_GET['idPatient']) && $_GET['idPatient'] == $patient['idPatient']) ? 'selected' : '' ?>>
+                                            <?= htmlspecialchars($patient['nom'] . ' ' . $patient['prenom'], ENT_QUOTES, 'UTF-8') ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="filter-group">
                                 <label for="idMedecin">Médecin</label>
                                 <select name="idMedecin" id="idMedecin">
                                     <option value="">Tous les médecins</option>

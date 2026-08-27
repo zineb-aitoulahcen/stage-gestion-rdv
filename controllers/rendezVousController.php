@@ -9,10 +9,13 @@
         case 'liste':
             $tabRDV = RendezVous::afficher();
             $medecins = Medecin::afficher();
+            $patients = Patient::afficher();
             $date ='';
             $idMedecin='';
+            $idPatient='';
             $filtreMed = isset($_GET['idMedecin'])&&!empty($_GET['idMedecin']);
             $filtreDate = isset($_GET['date'])&&!empty($_GET['date']);
+            $filtrePatient = isset($_GET['idPatient'])&&!empty($_GET['idPatient']);
             if ($filtreMed && $filtreDate){
                 $idMedecin = $_GET['idMedecin'];
                 $date = $_GET['date'];
@@ -23,6 +26,22 @@
             }elseif($filtreDate){
                 $date = $_GET['date'];
                 $tabRDV = rendezvous::filtrerParDate($date);
+            }elseif($filtrePatient){
+                $idPatient = $_GET['idPatient'];
+                $tabRDV = rendezvous::filtreParPatient($idPatient);
+            }elseif($filtreMed && $filtreDate && $filtrePatient){
+                $idMedecin = $_GET['idMedecin'];
+                $idPatient = $_GET['idPatient'];
+                $date = $_GET['date'];
+                $tabRDV = rendezvous::filtrerTout($idPatient, $idMedecin, $date);
+            }elseif($filtrePatient && $filtreMed){
+                $idMedecin = $_GET['idMedecin'];
+                $idPatient = $_GET['idPatient'];
+                $tabRDV = rendezvous::filtrerPatientMed ($idPatient, $idMedecin);
+            }elseif($filtrePatient && $date){
+                $idMedecin = $_GET['idMedecin'];
+                $date = $_GET['date'];
+                $tabRDV = rendezvous::filtrerPatientDate($idPatient, $date);
             }
             require __DIR__ . '/../views/listeRDV.php';
             break;

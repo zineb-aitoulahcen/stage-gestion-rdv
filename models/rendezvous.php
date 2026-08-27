@@ -71,6 +71,62 @@ class RendezVous {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function filtreParPatient($idPatient){
+        $db = connectToDB();
+        $stmt = $db->prepare("SELECT rendezvous.idRDV, rendezvous.date, rendezvous.heure,rendezvous.motif,rendezvous.status, 
+                            medecin.nom AS nomMedecin, medecin.prenom AS prenomMedecin,
+                            patient.nom AS nomPatient, patient.prenom AS prenomPatient
+                            FROM rendezvous
+                            JOIN medecin ON rendezvous.idMedecin = medecin.idMedecin
+                            JOIN patient ON rendezvous.idPatient = patient.idPatient
+                            WHERE rendezvous.idPatient = ?
+                            ORDER BY rendezvous.date DESC, rendezvous.heure DESC");
+        $stmt->execute([$idPatient]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function filtrerPatientMed ($idPatient, $idMedecin){
+        $db = connectToDB();
+        $stmt = $db-> prepare ("SELECT rendezvous.idRDV, rendezvous.date, rendezvous.heure,rendezvous.motif,rendezvous.status, 
+                            medecin.nom AS nomMedecin, medecin.prenom AS prenomMedecin,
+                            patient.nom AS nomPatient, patient.prenom AS prenomPatient
+                            FROM rendezvous
+                            JOIN medecin ON rendezvous.idMedecin = medecin.idMedecin
+                            JOIN patient ON rendezvous.idPatient = patient.idPatient
+                            WHERE rendezvous.idPatient = ? AND rendezvous.idMedecin = ?
+                            ORDER BY rendezvous.date DESC, rendezvous.heure DESC");
+        $stmt->execute([$idPatient, $idMedecin]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function filtrerPatientDate($idPatient, $date){
+        $db = connectToDB();
+        $stmt = $db-> prepare ("SELECT rendezvous.idRDV, rendezvous.date, rendezvous.heure,rendezvous.motif,rendezvous.status, 
+                            medecin.nom AS nomMedecin, medecin.prenom AS prenomMedecin,
+                            patient.nom AS nomPatient, patient.prenom AS prenomPatient
+                            FROM rendezvous
+                            JOIN medecin ON rendezvous.idMedecin = medecin.idMedecin
+                            JOIN patient ON rendezvous.idPatient = patient.idPatient
+                            WHERE rendezvous.idPatient = ? AND rendezvous.date = ?
+                            ORDER BY rendezvous.date DESC, rendezvous.heure DESC");
+        $stmt->execute([$idPatient, $date]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function filtrerTout($idPatient, $idMedecin, $date){
+        $db = connectToDB();
+        $stmt = $db-> prepare ("SELECT rendezvous.idRDV, rendezvous.date, rendezvous.heure,rendezvous.motif,rendezvous.status, 
+                            medecin.nom AS nomMedecin, medecin.prenom AS prenomMedecin,
+                            patient.nom AS nomPatient, patient.prenom AS prenomPatient
+                            FROM rendezvous
+                            JOIN medecin ON rendezvous.idMedecin = medecin.idMedecin
+                            JOIN patient ON rendezvous.idPatient = patient.idPatient
+                            WHERE rendezvous.idPatient = ? AND rendezvous.date = ? AND rendezvous.idMedecin = ?
+                            ORDER BY rendezvous.date DESC, rendezvous.heure DESC");
+        $stmt->execute([$idPatient, $date, $idMedecin]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function trouverParId($idRendezVous) {
         $db = connectToDB();
         $stmt = $db->prepare("SELECT * FROM rendezvous WHERE idRDV = ?");
