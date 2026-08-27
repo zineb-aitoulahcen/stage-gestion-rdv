@@ -6,7 +6,12 @@ $action = $_GET['action'] ?? $_POST['action'] ?? 'liste';
 switch ($action) {
     //Afficher la liste des médecins
     case 'liste':
-        $medecins = Medecin::afficher();
+        $recherche = $_GET['recherche'] ?? '';
+        if (!empty($recherche)){
+            $medecins = Medecin :: rechercheParNom($recherche);
+        }else{
+            $medecins = Medecin :: afficher();
+        }
         require __DIR__ . '/../views/listeMedecin.php';
         break;
     //Afficher le formulaire d'ajout ou de modification

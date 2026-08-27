@@ -75,5 +75,15 @@ class Medecin
         return $stmt->fetchColumn()>0;
     }
 
-   
+    public static function rechercheParNom($recherche){
+        $db = connectToDB();
+        $stmt = $db->prepare ("SELECT medecin.idMedecin,medecin.nom,medecin.prenom,medecin.tele,medecin.idSpecialite,specialite.libelle AS nomSpecialite
+                FROM medecin
+                JOIN specialite
+                ON medecin.idSpecialite = specialite.idSpecialite
+                WHERE nom LIKE ? OR prenom LIKE ?");
+        $like = '%'.$recherche.'%';
+        $stmt->execute([$like,$like]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } 
 }?>

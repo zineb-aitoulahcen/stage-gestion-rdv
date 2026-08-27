@@ -7,6 +7,7 @@
     <title>Médecins - Panneau de Gestion</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/tables.css">
+    <link rel="stylesheet" href="../assets/css/formFiltre.css">
 </head>
 <body>
     <!-- Barre de navigation -->
@@ -43,8 +44,27 @@
         <!-- Carte du tableau -->
         <section class="table-card">
             <div class="table-card-header">
-                <h2>Liste des médecins</h2>
-                <p>Consultez et gérez les informations des médecins.</p>
+                <div class=header-content>
+                    <div class = "header-text">
+                        <h2>Liste des médecins</h2>
+                        <p>Consultez et gérez les informations des médecins.</p>
+                    </div>
+                    <!-- Recherche -->
+                     <form method="GET" action="../controllers/medecinController.php"  class="filters-form">
+                        <input type="hidden" name="action" value="liste">
+                        <div class="filters-row">
+                            <div class = "filter-group">
+                                <label for="recherche">Rechercher un medecin</label>
+                                <input type="text" name="recherche" id="recherche" placeholder="Nom ou prénom..."
+                                    value="<?= htmlspecialchars($recherche ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                            </div>
+                            <div class="filtre-actions">
+                                <button type="submit" class="btn-filtre">Rechercher</button>
+                                <a href="../controllers/medecinController.php?action=liste" class="btn-reinitialiser">Réinitialiser</a>
+                            </div>
+                        </div>
+                     </form>
+                </div>
             </div>
             <div class="table-wrapper">
                 <table class="data-table">
