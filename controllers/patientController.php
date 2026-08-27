@@ -5,7 +5,12 @@
     $action = $_GET['action'] ?? $_POST['action'] ?? 'liste';
     switch ($action) {
         case 'liste':
-            $patients = Patient::afficher();
+            $recherche = $_GET['recherche'] ?? '';
+            if (!empty($recherche)){
+                $patients = Patient :: rechercheParNom($recherche);
+            }else{
+                $patients = Patient :: afficher();
+            }
             require __DIR__ . '/../views/listePatient.php';
             break;
         case 'formulaire':

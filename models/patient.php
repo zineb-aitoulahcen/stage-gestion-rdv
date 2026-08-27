@@ -61,5 +61,11 @@ class Patient {
         return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
     }
 
-
+    public static function rechercheParNom($recherche){
+        $db = connectToDB();
+        $stmt = $db->prepare ("SELECT * FROM patient WHERE nom LIKE ? OR prenom LIKE ?");
+        $like = '%' . $recherche . '%';
+        $stmt->execute([$like,$like]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }?>
