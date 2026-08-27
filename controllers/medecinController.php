@@ -105,7 +105,7 @@ switch ($action) {
         $idMedecin = $_POST['idMedecin'] ?? '';
         $erreurs = [];
         if (rendezvous::medecin_a_rdv($idMedecin)){
-            $erreurs[] = "Ce médecin a des rendez-vous planifiés. Impossible de le supprimer avant la réalisation ou l'annulation des rendez-vous.";
+            $erreurs[] = "Ce medecin a des rendez-vous associés (planifiés, réalisés ou annulés). Impossible de le supprimer.";
         }
         if(empty($erreurs)&& $idMedecin !== ''){
             Medecin::supprimer($idMedecin);

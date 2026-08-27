@@ -66,7 +66,7 @@
                 $idPatient = $_POST['idPatient'] ?? '';
                 $erreurs = [];
                 if(RendezVous::patient_a_rdv($idPatient)){
-                    $erreurs[] = "Ce patient a des rendez-vous planifiés. Impossible de le suprimer avant la réalisation ou l'annulation des rendez-vous.";
+                    $erreurs[] = "Ce patient a des rendez-vous associés (planifiés, réalisés ou annulés). Impossible de le supprimer.";
                 }
                 if ($idPatient !== ''&& empty($erreurs)) {
                     Patient::supprimer($idPatient);
